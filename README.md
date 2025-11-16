@@ -3,7 +3,10 @@ Story Splitter AI is a utility that takes a user story or a text with detailed d
 and decomposes it into structured JSON object.
 
 ## Getting started
-In order to use this utility, you need OpenAI api key that is assigned to OPENAI_API_KEY environment variable.
+### HTTP-server
+In order to use this utility, you need
+- Node.js installed locally in your PC.
+- OpenAI API Key that is assigned to your OPENAI_API_KEY environment variable.
 
 Clone this repository and run the following commands in the root of the project to start an HTTP-server:
 ```shell
@@ -14,11 +17,11 @@ npm run start-express
 ```
 Then you can use the methods specified in [Endpoints](#endpoints) section using http://localhost:3000/ address.
 
+### Mastra Playground
 If you want to access Mastra Playground, run
 ```shell
 npm run start
 ```
-
 and then open http://localhost:4111 in your browser.
 
 ## Endpoints
