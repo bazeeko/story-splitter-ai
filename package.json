@@ -6,7 +6,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "mastra dev",
     "build": "mastra build",
-    "start": "mastra start"
+    "start": "mastra start",
+    "build-express": "tsc && tsc-alias",
+    "start-express" : "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
