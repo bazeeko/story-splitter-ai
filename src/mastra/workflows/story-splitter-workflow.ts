@@ -82,6 +82,6 @@ export const storySplitterWorkflow = createWorkflow({
     inputSchema: StorySplitterInputSchema,
     outputSchema: StorySplitterOutputSchema,
 })
-    .then(splitUserStory)
+    .then(splitUserStory);
 
 storySplitterWorkflow.commit();

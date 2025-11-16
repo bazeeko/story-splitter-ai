@@ -1,7 +1,7 @@
 import {Agent} from "@mastra/core/agent";
 import {Memory} from "@mastra/memory";
 import {LibSQLStore, LibSQLVector} from "@mastra/libsql";
-import {fastembed} from "@mastra/fastembed"
+import {fastembed} from "@mastra/fastembed";
 
 export const analystAgent = new Agent({
     name: "Analyst Agent",
