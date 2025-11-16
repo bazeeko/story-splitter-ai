@@ -2,7 +2,7 @@ import {createStep, createWorkflow} from "@mastra/core/workflows";
 import {z} from "zod";
 
 export const StorySplitterInputSchema = z.object({
-    text: z.string().describe('A user story or a text containing detailed description of the feature'),
+    text: z.string().describe("A user story or a text containing detailed description of the feature"),
 });
 
 export const StorySplitterTask = z.object({
@@ -15,21 +15,21 @@ export const StorySplitterOutputSchema = z.object({
     tasks: z.array(StorySplitterTask).describe("An array of tasks")
 });
 
-const splitStory = createStep({
-    id: 'split-story',
-    description: 'Suggests epic and tasks that should be created.',
+const splitUserStory = createStep({
+    id: "split-user-story",
+    description: "Suggests epic and tasks that should be created.",
     inputSchema: StorySplitterInputSchema,
     outputSchema: StorySplitterOutputSchema,
     execute: async ({inputData, mastra}) => {
         const {text} = inputData;
 
         if (!text) {
-            throw new Error('user story not found');
+            throw new Error("user story not found");
         }
 
-        const storySplitterAgent = mastra?.getAgent('storySplitterAgent');
-        if (!storySplitterAgent) {
-            throw new Error('story splitter agent not found');
+        const analystAgent = mastra?.getAgent("analystAgent");
+        if (!analystAgent) {
+            throw new Error("story splitter agent not found");
         }
 
         const prompt = `
@@ -58,14 +58,14 @@ const splitStory = createStep({
         User story:
         ${text}`;
 
-        const response = await storySplitterAgent.stream([
+        const response = await analystAgent.stream([
             {
-                role: 'user',
+                role: "user",
                 content: prompt,
             },
         ]);
 
-        let output = '';
+        let output = "";
         for await (const chunk of response.textStream) {
             process.stdout.write(chunk);
             output += chunk;
@@ -78,10 +78,10 @@ const splitStory = createStep({
 });
 
 export const storySplitterWorkflow = createWorkflow({
-    id: 'story-splitter-workflow',
+    id: "story-splitter-workflow",
     inputSchema: StorySplitterInputSchema,
     outputSchema: StorySplitterOutputSchema,
 })
-    .then(splitStory)
+    .then(splitUserStory)
 
 storySplitterWorkflow.commit();
