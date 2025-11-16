@@ -1,5 +1,5 @@
 {
-  "name": "m",
+  "name": "story-splitter-ai",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
@@ -17,8 +17,10 @@
     "node": ">=20.9.0"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^2.0.67",
     "@mastra/core": "^0.24.1",
     "@mastra/evals": "^0.14.4",
+    "@mastra/fastembed": "^0.10.7",
     "@mastra/libsql": "^0.16.2",
     "@mastra/loggers": "^0.10.19",
     "@mastra/memory": "^0.15.11",
