@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
 import express from "express";
 import {mastra} from "@src/mastra/index.js";
 import {SplitStoryRequest, SplitStoryResponse} from "@src/models/user-story.js";
+import {parseConfig} from "@src/configs/config.js";
 
-dotenv.config();
+const cfg = parseConfig();
 const app = express();
 app.use(express.json());
 
@@ -28,4 +28,4 @@ app.post("/user-stories/split", async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("Server running on 3000"));
+app.listen(cfg.HTTP_PORT, () => console.log(`Server running on ${cfg.HTTP_PORT}`));

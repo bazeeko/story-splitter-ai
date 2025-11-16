@@ -8,7 +8,7 @@
     "build": "mastra build",
     "start": "mastra start",
     "build-express": "tsc && tsc-alias",
-    "start-express" : "node ./dist/index.js"
+    "start-express": "node ./dist/index.js"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "@mastra/libsql": "^0.16.2",
     "@mastra/loggers": "^0.10.19",
     "@mastra/memory": "^0.15.11",
+    "dotenv": "^17.2.3",
     "zod": "^4.1.12"
   },
   "devDependencies": {

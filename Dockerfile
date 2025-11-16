@@ -15,5 +15,6 @@ FROM node:24.11.1-alpine3.22 AS runtime
 WORKDIR /app
 COPY --from=development /app /app
 
+ENV HTTP_PORT=3000
 EXPOSE 3000
 CMD ["npm", "run", "start-express"]
